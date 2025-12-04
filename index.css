@@ -4,9 +4,11 @@
   .glass {
     @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
   }
+
   .glass-dark {
     @apply bg-gray-900/70 backdrop-blur-lg border border-gray-700/30 shadow-xl;
   }
+
   .glass-card {
     @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-lg hover:shadow-2xl transition-all duration-300;
   }
@@ -21,9 +23,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-blue/30 rounded-full hover:bg-brand-blue/50 transition-colors;
+  background-color: rgba(44, 116, 179, 0.3);
+  @apply rounded-full transition-colors;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(44, 116, 179, 0.5);
 }
