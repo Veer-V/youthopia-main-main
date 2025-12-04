@@ -549,6 +549,54 @@ export const eventsData: Event[] = [
         participants: 'Open',
         prizes: { first: '-', second: '-', third: '-' },
         category: 'M-Power'
+    },
+    {
+        id: 'evt-mh-001',
+        name: 'Mindfulness & Meditation Workshop',
+        description: 'Learn techniques to manage stress and improve focus through guided meditation.',
+        date: '2025-03-20',
+        time: '10:00 AM - 11:30 AM',
+        location: 'Wellness Center, Room 302',
+        points: 50,
+        participants: 0,
+        prizes: {
+            first: 'Meditation Kit',
+            second: 'Yoga Mat',
+            third: 'Wellness Journal'
+        },
+        category: 'M-Power'
+    },
+    {
+        id: 'evt-mh-002',
+        name: 'Art Therapy Session',
+        description: 'Express yourself creatively and relieve anxiety in this guided art therapy session.',
+        date: '2025-03-22',
+        time: '2:00 PM - 4:00 PM',
+        location: 'Art Studio B',
+        points: 40,
+        participants: 0,
+        prizes: {
+            first: 'Premium Art Set',
+            second: 'Sketchbook Bundle',
+            third: 'Coloring Book'
+        },
+        category: 'M-Power'
+    },
+    {
+        id: 'evt-mh-003',
+        name: 'Yoga for Stress Relief',
+        description: 'A beginner-friendly yoga session focused on relaxation and stress reduction.',
+        date: '2025-03-25',
+        time: '9:00 AM - 10:30 AM',
+        location: 'Gymnasium',
+        points: 45,
+        participants: 0,
+        prizes: {
+            first: 'Yoga Block Set',
+            second: 'Water Bottle',
+            third: 'Towel'
+        },
+        category: 'M-Power'
     }
 ];
 

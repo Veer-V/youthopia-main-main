@@ -8,7 +8,7 @@ import { staggerContainer, itemSpringUp } from '../../utils/animations';
 import SkeletonLoader from '../SkeletonLoader';
 
 const SkeletonStatCard: React.FC = () => (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md flex items-center">
+    <div className="glass p-4 rounded-xl shadow-md flex items-center border border-white/20">
         <SkeletonLoader className="h-12 w-12 rounded-lg mr-4" />
         <div className="flex-1">
             <SkeletonLoader className="h-4 w-2/3 rounded-md mb-2" />
@@ -31,14 +31,14 @@ const StatCard: React.FC<StatCardProps> = ({ icon, title, value, color, iconColo
         whileHover={{ y: -5, transition: { duration: 0.2 } }}
         whileTap={{ scale: 0.95 }}
         onClick={onClick}
-        className={`bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md flex items-center cursor-pointer ${onClick ? 'hover:shadow-lg' : ''}`}
+        className={`glass p-4 rounded-xl shadow-md flex items-center cursor-pointer border border-white/20 ${onClick ? 'hover:shadow-lg hover:bg-white/40' : ''}`}
     >
-        <div className={`p-3 rounded-lg ${color} ${iconColor} mr-4`}>
+        <div className={`p-3 rounded-lg ${color} ${iconColor} mr-4 shadow-sm`}>
             {icon}
         </div>
         <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">{value}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">{title}</p>
+            <h3 className="text-xl font-bold text-brand-dark-blue dark:text-white">{value}</h3>
         </div>
     </motion.div>
 );
@@ -106,9 +106,9 @@ const AdminDashboardPage: React.FC = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">Dashboard Overview</h1>
+                <h1 className="text-2xl md:text-3xl font-bold text-brand-dark-blue dark:text-white">Dashboard Overview</h1>
                 {stats && (
-                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 bg-white/50 dark:bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">
                         Summary of participant and event activity
                     </p>
                 )}
@@ -142,6 +142,19 @@ const AdminDashboardPage: React.FC = () => {
                         ))}
                     </>
                 )}
+            </motion.div>
+
+            {/* Wellness Quote Section */}
+            <motion.div
+                className="mt-8 glass p-6 rounded-xl border border-white/20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+            >
+                <h2 className="text-xl font-bold text-brand-dark-blue dark:text-white mb-2">Daily Inspiration</h2>
+                <p className="text-gray-600 dark:text-gray-300 italic">
+                    "The only way to do great work is to love what you do." - Steve Jobs
+                </p>
             </motion.div>
         </motion.div>
     );
