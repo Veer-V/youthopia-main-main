@@ -23,7 +23,7 @@ export interface Event {
     completedAt?: number;
     feedback?: string;
     flyerUrl?: string;
-    category?: 'M-Power' | 'Intercollegiate' | 'Other';
+    category?: 'M-Power' | 'Intercollegiate' | 'Other' | 'Engagement';
 }
 
 export interface SurveyResponse {

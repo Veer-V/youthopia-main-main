@@ -39,6 +39,7 @@ const InputField = ({
     isVisible = false,
     onVisibilityChange,
     error,
+    autoComplete,
 }: {
     id: string;
     icon: React.ReactNode;
@@ -52,6 +53,7 @@ const InputField = ({
     isVisible?: boolean;
     onVisibilityChange?: () => void;
     error?: string;
+    autoComplete?: string;
 }) => {
     const inputType = isPassword ? (isVisible ? 'text' : 'password') : type;
     const [isFocused, setIsFocused] = React.useState(false);
@@ -88,6 +90,7 @@ const InputField = ({
                     required
                     aria-invalid={hasError}
                     aria-describedby={hasError ? `${id}-error` : undefined}
+                    autoComplete={autoComplete}
                 />
                 <motion.label
                     htmlFor={id}
@@ -592,8 +595,8 @@ const AuthPage: React.FC = () => {
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
-                                        <InputField id="passwordReg" name="password" label="Password" icon={<FiLock />} value={registerForm.password} onChange={e => handleInputChange(e, setRegisterForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} />
-                                        <InputField id="confirmPasswordReg" name="confirmPassword" label="Confirm Password" icon={<FiLock />} value={registerForm.confirmPassword} onChange={e => handleInputChange(e, setRegisterForm)} isPassword isVisible={isConfirmPasswordVisible} onVisibilityChange={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} error={errors.confirmPassword} />
+                                        <InputField id="passwordReg" name="password" label="Password" icon={<FiLock />} value={registerForm.password} onChange={e => handleInputChange(e, setRegisterForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="new-password" />
+                                        <InputField id="confirmPasswordReg" name="confirmPassword" label="Confirm Password" icon={<FiLock />} value={registerForm.confirmPassword} onChange={e => handleInputChange(e, setRegisterForm)} isPassword isVisible={isConfirmPasswordVisible} onVisibilityChange={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} error={errors.confirmPassword} autoComplete="new-password" />
                                         <div className="pt-2"><MotionButton type="submit" isLoading={isLoading}>Next</MotionButton></div>
                                     </motion.form>
                                 </motion.div>
@@ -742,6 +745,7 @@ const AuthPage: React.FC = () => {
                                             isVisible={isPasswordVisible}
                                             onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)}
                                             error={errors.password}
+                                            autoComplete="new-password"
                                         />
                                         <InputField
                                             id="resetConfirmPassword"
@@ -754,6 +758,7 @@ const AuthPage: React.FC = () => {
                                             isVisible={isConfirmPasswordVisible}
                                             onVisibilityChange={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}
                                             error={errors.confirmPassword}
+                                            autoComplete="new-password"
                                         />
                                         <div className="pt-2"><MotionButton type="submit" isLoading={isLoading}>Reset Password</MotionButton></div>
                                     </form>
@@ -774,8 +779,8 @@ const AuthPage: React.FC = () => {
                         <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Admin Access</h2>
                         <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Enter your credentials to manage Youthopia.</p>
                         <form onSubmit={handleAdminLogin} className="space-y-4" noValidate>
-                            <InputField id="contactAdmin" name="contact" label="Contact Number" icon={<FiPhone />} value={adminForm.contact} onChange={e => handleInputChange(e, setAdminForm)} error={errors.contact} />
-                            <InputField id="passwordAdmin" name="password" label="Password" icon={<FiLock />} value={adminForm.password} onChange={e => handleInputChange(e, setAdminForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} />
+                            <InputField id="contactAdmin" name="contact" label="Contact Number" icon={<FiPhone />} value={adminForm.contact} onChange={e => handleInputChange(e, setAdminForm)} error={errors.contact} autoComplete="tel" />
+                            <InputField id="passwordAdmin" name="password" label="Password" icon={<FiLock />} value={adminForm.password} onChange={e => handleInputChange(e, setAdminForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="current-password" />
                             <div className="pt-2">
                                 <MotionButton type="submit" isLoading={isLoading} className="bg-brand-blue text-white hover:bg-brand-dark-blue">
                                     <span className="mr-2"><FiShield /></span> Admin Sign In
@@ -796,8 +801,8 @@ const AuthPage: React.FC = () => {
                         <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Get started instantly!</h2>
                         <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Sign in with your phone number and password.</p>
                         <form onSubmit={handleLogin} className="space-y-4" noValidate>
-                            <InputField id="contactLogin" name="contact" label="Contact Number" icon={<FiPhone />} value={loginForm.contact} onChange={e => handleInputChange(e, setLoginForm)} error={errors.contact} />
-                            <InputField id="passwordLogin" name="password" label="Password" icon={<FiLock />} value={loginForm.password} onChange={e => handleInputChange(e, setLoginForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} />
+                            <InputField id="contactLogin" name="contact" label="Contact Number" icon={<FiPhone />} value={loginForm.contact} onChange={e => handleInputChange(e, setLoginForm)} error={errors.contact} autoComplete="tel" />
+                            <InputField id="passwordLogin" name="password" label="Password" icon={<FiLock />} value={loginForm.password} onChange={e => handleInputChange(e, setLoginForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="current-password" />
                             <div className="pt-2"><MotionButton type="submit" isLoading={isLoading}>Sign In</MotionButton></div>
                         </form>
                         <p className="text-center mt-6 text-sm dark:text-gray-300">
