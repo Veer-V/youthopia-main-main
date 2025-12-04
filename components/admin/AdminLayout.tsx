@@ -27,7 +27,7 @@ const AdminLayout: React.FC = () => {
     };
 
     return (
-        <div className="relative md:flex min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="relative md:flex min-h-screen bg-gray-100">
             <AnimatePresence>
                 {isSidebarOpen && (
                     <motion.div
@@ -70,22 +70,22 @@ const AdminLayout: React.FC = () => {
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
-                <header className="bg-white dark:bg-gray-800 shadow-sm p-4 flex justify-between items-center shrink-0 z-10">
+                <header className="bg-white shadow-sm p-4 flex justify-between items-center shrink-0 z-10">
                     <button
                         onClick={() => setIsSidebarOpen(true)}
-                        className="md:hidden text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white focus:outline-none p-2 -ml-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none p-2 -ml-2 rounded-md hover:bg-gray-100"
                         aria-label="Open sidebar"
                     >
                         <FiMenu size={24} />
                     </button>
                     <div className="hidden md:block" />
                     <div className="flex items-center gap-2">
-                        <span className="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-200 truncate max-w-[150px] md:max-w-none">
+                        <span className="text-sm md:text-base font-semibold text-gray-700 truncate max-w-[150px] md:max-w-none">
                             Welcome, {adminUser?.username}
                         </span>
                         <motion.button
                             onClick={handleLogout}
-                            className="ml-2 md:ml-4 text-gray-600 dark:text-gray-400 hover:text-red-500 focus:outline-none p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                            className="ml-2 md:ml-4 text-gray-600 hover:text-red-500 focus:outline-none p-2 rounded-full hover:bg-gray-100"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             title="Logout"
@@ -94,7 +94,7 @@ const AdminLayout: React.FC = () => {
                         </motion.button>
                     </div>
                 </header>
-                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-900 relative">
+                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 relative">
                     <Outlet />
                 </main>
             </div>
