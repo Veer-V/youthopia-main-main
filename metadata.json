@@ -1,0 +1,7 @@
+{
+  "name": "Youthopia",
+  "description": "A safe space for students for mental health awareness, conversations & creativity. Unite to break stigma, spark hope & build resilience together.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
