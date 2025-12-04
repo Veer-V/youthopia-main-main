@@ -567,8 +567,8 @@ const AuthPage: React.FC = () => {
                         <AnimatePresence mode="wait">
                             {registrationStep === 'details' && (
                                 <motion.div key="details-wrapper">
-                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Create Account</h2>
-                                    <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Join the Youthopia community!</p>
+                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue mb-2">Create Account</h2>
+                                    <p className="text-center text-brand-blue mb-6">Join the Youthopia community!</p>
                                     <motion.form key="details" variants={stepVariants} initial="hidden" animate="visible" exit="exit" onSubmit={handleRegisterDetails} className="space-y-3" noValidate>
                                         <InputField id="fullName" name="fullName" label="Full Name" icon={<FiUser />} value={registerForm.fullName} onChange={e => handleInputChange(e, setRegisterForm)} error={errors.fullName} />
                                         <InputField id="schoolName" name="schoolName" label="College/School Name" icon={<FaSchool />} value={registerForm.schoolName} onChange={e => handleInputChange(e, setRegisterForm)} error={errors.schoolName} />
@@ -603,10 +603,10 @@ const AuthPage: React.FC = () => {
                             )}
                             {registrationStep === 'photo' && (
                                 <motion.div key="photo" variants={stepVariants} initial="hidden" animate="visible" exit="exit" className="text-center">
-                                    <h3 className="font-semibold text-brand-dark-blue dark:text-gray-200 mb-2">Add a Profile Photo</h3>
-                                    <p className="text-brand-blue dark:text-gray-400 mb-4">This will be your identity in Youthopia.</p>
+                                    <h3 className="font-semibold text-brand-dark-blue mb-2">Add a Profile Photo</h3>
+                                    <p className="text-brand-blue mb-4">This will be your identity in Youthopia.</p>
 
-                                    <div className="w-40 h-40 mx-auto bg-gray-200 dark:bg-gray-700 rounded-full mb-4 flex items-center justify-center overflow-hidden relative">
+                                    <div className="w-40 h-40 mx-auto bg-gray-200 rounded-full mb-4 flex items-center justify-center overflow-hidden relative">
                                         {photoData && <img src={photoData} alt="Profile preview" className="w-full h-full object-cover" />}
                                         {!photoData && !isFileUploading && <span className="w-8 h-8 mb-1 inline-flex items-center justify-center"><FiUser size={60} /></span>}
                                         {isFileUploading && (
@@ -620,7 +620,7 @@ const AuthPage: React.FC = () => {
                                         <div className="mb-4 space-y-3">
                                             <video ref={videoRef} autoPlay playsInline muted className="w-full rounded-lg shadow-inner" />
                                             <MotionButton onClick={handleCapture}>Capture Photo</MotionButton>
-                                            <button onClick={() => setShowCamera(false)} className="text-sm font-semibold text-brand-blue dark:text-gray-400 hover:underline">
+                                            <button onClick={() => setShowCamera(false)} className="text-sm font-semibold text-brand-blue hover:underline">
                                                 Cancel Camera
                                             </button>
                                         </div>
@@ -636,7 +636,7 @@ const AuthPage: React.FC = () => {
                                                     setPhotoData('https://i.pravatar.cc/150?u=skip');
                                                     setRegistrationStep('visaGrab');
                                                 }}
-                                                className="w-full py-3 text-brand-blue dark:text-gray-400 font-semibold hover:underline"
+                                                className="w-full py-3 text-brand-blue font-semibold hover:underline"
                                             >
                                                 Skip for now
                                             </button>
@@ -648,7 +648,7 @@ const AuthPage: React.FC = () => {
                                             <MotionButton onClick={() => setRegistrationStep('visaGrab')} isLoading={isLoading} disabled={!photoData}>
                                                 Confirm and Continue
                                             </MotionButton>
-                                            <button onClick={handleResetPhoto} className="flex items-center justify-center w-full text-sm font-semibold text-brand-blue dark:text-gray-400 hover:underline">
+                                            <button onClick={handleResetPhoto} className="flex items-center justify-center w-full text-sm font-semibold text-brand-blue hover:underline">
                                                 <span className="mr-1"></span><FiRepeat /> Change Photo
                                             </button>
                                         </div>
@@ -674,13 +674,13 @@ const AuthPage: React.FC = () => {
                                         className="flex flex-col items-center justify-center"
                                     >
                                         <span className="mb-4"><FiCheckCircle size={60} /></span>
-                                        <h2 className="text-xl sm:text-2xl font-bold text-brand-dark-blue dark:text-gray-100">Congratulations!</h2>
-                                        <p className="text-base sm:text-lg text-brand-blue dark:text-gray-300 mt-2 max-w-xs">
+                                        <h2 className="text-xl sm:text-2xl font-bold text-brand-dark-blue">Congratulations!</h2>
+                                        <p className="text-base sm:text-lg text-brand-blue mt-2 max-w-xs">
                                             {registerForm.fullName.split(' ')[0]}, welcome to Youthopia...
                                             Your journey to mental wellbeing starts now.
                                         </p>
                                         <motion.div
-                                            className="mt-4 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 font-bold py-2 px-4 rounded-full inline-block"
+                                            className="mt-4 bg-green-100 text-green-800 font-bold py-2 px-4 rounded-full inline-block"
                                             initial={{ scale: 0, opacity: 0 }}
                                             animate={{ scale: 1, opacity: 1, transition: { type: 'spring', delay: 0.5 } }}
                                         >
@@ -695,9 +695,9 @@ const AuthPage: React.FC = () => {
                                 </motion.div>
                             )}
                         </AnimatePresence>
-                        <p className="text-center mt-6 text-sm dark:text-gray-300">
+                        <p className="text-center mt-6 text-sm text-slate-600">
                             Already have an account?{' '}
-                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue dark:text-brand-light-blue hover:underline">
+                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue hover:underline">
                                 Sign In
                             </button>
                         </p>
@@ -709,8 +709,8 @@ const AuthPage: React.FC = () => {
                         <AnimatePresence mode="wait">
                             {resetStep === 'contact' && (
                                 <motion.div key="reset-contact" variants={stepVariants} initial="hidden" animate="visible" exit="exit">
-                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Reset Password</h2>
-                                    <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Enter your contact number to continue.</p>
+                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue mb-2">Reset Password</h2>
+                                    <p className="text-center text-brand-blue mb-6">Enter your contact number to continue.</p>
                                     <form onSubmit={handleResetContact} className="space-y-4" noValidate>
                                         <InputField
                                             id="resetContact"
@@ -731,8 +731,8 @@ const AuthPage: React.FC = () => {
                             {/* Removed intermediate reset step */}
                             {resetStep === 'password' && (
                                 <motion.div key="reset-password" variants={stepVariants} initial="hidden" animate="visible" exit="exit">
-                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Set New Password</h2>
-                                    <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Enter your new password below.</p>
+                                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue mb-2">Set New Password</h2>
+                                    <p className="text-center text-brand-blue mb-6">Enter your new password below.</p>
                                     <form onSubmit={handleResetPassword} className="space-y-4" noValidate>
                                         <InputField
                                             id="resetPassword"
@@ -765,9 +765,9 @@ const AuthPage: React.FC = () => {
                                 </motion.div>
                             )}
                         </AnimatePresence>
-                        <p className="text-center mt-6 text-sm dark:text-gray-300">
+                        <p className="text-center mt-6 text-sm text-slate-600">
                             Remember your password?{' '}
-                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue dark:text-brand-light-blue hover:underline">
+                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue hover:underline">
                                 Sign In
                             </button>
                         </p>
@@ -776,8 +776,8 @@ const AuthPage: React.FC = () => {
             case 'admin':
                 return (
                     <motion.div key="admin" variants={pageTransition} initial="hidden" animate="visible" exit="exit">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Admin Access</h2>
-                        <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Enter your credentials to manage Youthopia.</p>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue mb-2">Admin Access</h2>
+                        <p className="text-center text-brand-blue mb-6">Enter your credentials to manage Youthopia.</p>
                         <form onSubmit={handleAdminLogin} className="space-y-4" noValidate>
                             <InputField id="contactAdmin" name="contact" label="Contact Number" icon={<FiPhone />} value={adminForm.contact} onChange={e => handleInputChange(e, setAdminForm)} error={errors.contact} autoComplete="tel" />
                             <InputField id="passwordAdmin" name="password" label="Password" icon={<FiLock />} value={adminForm.password} onChange={e => handleInputChange(e, setAdminForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="current-password" />
@@ -787,9 +787,9 @@ const AuthPage: React.FC = () => {
                                 </MotionButton>
                             </div>
                         </form>
-                        <p className="text-center mt-6 text-sm dark:text-gray-300">
+                        <p className="text-center mt-6 text-sm text-slate-600">
                             Not an admin?{' '}
-                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue dark:text-brand-light-blue hover:underline">
+                            <button onClick={() => setMode('login')} className="font-semibold text-brand-blue hover:underline">
                                 Student Login
                             </button>
                         </p>
@@ -798,84 +798,74 @@ const AuthPage: React.FC = () => {
             default:
                 return (
                     <motion.div key="login" variants={pageTransition} initial="hidden" animate="visible" exit="exit">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue dark:text-gray-100 mb-2">Get started instantly!</h2>
-                        <p className="text-center text-brand-blue dark:text-gray-400 mb-6">Sign in with your phone number and password.</p>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-center text-brand-dark-blue mb-2">Welcome Back!</h2>
+                        <p className="text-center text-brand-blue mb-6">Sign in to continue your journey.</p>
                         <form onSubmit={handleLogin} className="space-y-4" noValidate>
-                            <InputField id="contactLogin" name="contact" label="Contact Number" icon={<FiPhone />} value={loginForm.contact} onChange={e => handleInputChange(e, setLoginForm)} error={errors.contact} autoComplete="tel" />
-                            <InputField id="passwordLogin" name="password" label="Password" icon={<FiLock />} value={loginForm.password} onChange={e => handleInputChange(e, setLoginForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="current-password" />
+                            <InputField id="contact" name="contact" label="Contact Number" icon={<FiPhone />} value={loginForm.contact} onChange={e => handleInputChange(e, setLoginForm)} error={errors.contact} autoComplete="tel" />
+                            <InputField id="password" name="password" label="Password" icon={<FiLock />} value={loginForm.password} onChange={e => handleInputChange(e, setLoginForm)} isPassword isVisible={isPasswordVisible} onVisibilityChange={() => setIsPasswordVisible(!isPasswordVisible)} error={errors.password} autoComplete="current-password" />
+                            <div className="flex justify-end">
+                                <button type="button" onClick={() => setMode('forgotPassword')} className="text-sm font-semibold text-brand-blue hover:underline">
+                                    Forgot Password?
+                                </button>
+                            </div>
                             <div className="pt-2"><MotionButton type="submit" isLoading={isLoading}>Sign In</MotionButton></div>
                         </form>
-                        <p className="text-center mt-6 text-sm dark:text-gray-300">
+                        <p className="text-center mt-6 text-sm text-slate-600">
                             Don't have an account?{' '}
-                            <button onClick={() => { setMode('register'); setRegistrationStep('details'); }} className="font-semibold text-brand-blue dark:text-brand-light-blue hover:underline">
-                                Sign Up
+                            <button onClick={() => setMode('register')} className="font-semibold text-brand-blue hover:underline">
+                                Create Account
                             </button>
                         </p>
-                        <p className="text-center mt-4 text-xs text-gray-400 dark:text-gray-500">
-                            Are you an admin?{' '}
-                            <button onClick={() => setMode('admin')} className="font-semibold text-gray-500 dark:text-gray-400 hover:underline">
-                                Login Here
+                        <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+                            <button onClick={() => setMode('admin')} className="text-sm text-gray-400 hover:text-brand-dark-blue flex items-center justify-center mx-auto transition-colors">
+                                <FiShield className="mr-1" /> Admin Access
                             </button>
-                        </p>
+                        </div>
                     </motion.div>
                 );
         }
     };
 
     return (
-        <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={pageTransition}
-            className="container mx-auto px-4 py-8 md:py-12 min-h-[calc(100vh-80px)]"
-        >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="hidden lg:flex justify-center">
-                    <div className="w-full max-w-lg">
-                        <Illustration />
-                    </div>
-                </div>
-                <div className="w-full max-w-md mx-auto">
-                    <motion.div
-                        className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl"
-                        variants={itemSpringUp}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <AnimatePresence>
-                            {locationState?.message && (
-                                <motion.div
-                                    className="mb-4 p-3 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-lg flex items-start gap-3"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                >
-                                    <span className="mt-1 flex-shrink-0"><FiInfo /></span>
-                                    <p className="text-sm font-semibold">{locationState.message}</p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+        <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-50">
+            {/* Dynamic Background */}
+            <div className="absolute inset-0 w-full h-full bg-slate-50">
+                <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-brand-blue/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" />
+                <div className="absolute top-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-brand-yellow/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000" />
+                <div className="absolute bottom-[-20%] left-[20%] w-[40rem] h-[40rem] bg-purple-300/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000" />
+            </div>
 
+            <motion.div
+                className="w-full max-w-5xl grid md:grid-cols-2 gap-8 relative z-10"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                {/* Left Side - Illustration */}
+                <div className="hidden md:flex flex-col justify-center items-center p-8 glass-card rounded-[2.5rem] text-center">
+                    <div className="mb-8 relative w-full max-w-sm">
+                        <div className="absolute inset-0 bg-brand-yellow/20 rounded-full blur-3xl transform scale-90" />
+                        <Illustration className="w-full h-auto relative z-10 drop-shadow-xl" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-brand-dark-blue mb-4">Empower Your Future</h2>
+                    <p className="text-lg text-slate-600 max-w-sm">
+                        Connect, compete, and celebrate with students from across the region.
+                    </p>
+                </div>
+
+                {/* Right Side - Form */}
+                <div className="glass-card rounded-[2.5rem] p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl -mr-10 -mt-10" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl -ml-10 -mb-10" />
+
+                    <div className="relative z-10">
                         <AnimatePresence mode="wait">
                             {renderContent()}
                         </AnimatePresence>
-                        <AnimatePresence>
-                            {(errors.form || errors.camera) && (
-                                <motion.p
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -5 }}
-                                    className="mt-4 text-center text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400 p-2 rounded-md text-sm font-semibold"
-                                >
-                                    {errors.form || errors.camera}
-                                </motion.p>
-                            )}
-                        </AnimatePresence>
-                    </motion.div>
+                    </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     );
 };
 

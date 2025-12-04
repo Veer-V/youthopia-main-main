@@ -38,10 +38,10 @@ const Navbar: React.FC = () => {
         },
         tap: { scale: 0.95 },
     };
-    
+
     const mobileMenuVariants: Variants = {
         hidden: { x: '100%' },
-        visible: { 
+        visible: {
             x: 0,
             transition: { duration: 0.3, ease: 'easeInOut' }
         },
@@ -52,8 +52,8 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <motion.nav 
-            className="bg-white shadow-lg sticky top-0 z-50"
+        <motion.nav
+            className="glass sticky top-0 z-50 border-b border-white/20"
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -73,12 +73,12 @@ const Navbar: React.FC = () => {
                         </NavLink>
                     </motion.div>
                     <div className="hidden md:flex items-center space-x-8">
-                         {user && (
+                        {user && (
                             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 300 }}>
                                 <div className="relative">
                                     <NavLink to="/dashboard" className="text-brand-dark-blue font-medium text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-sm py-2 group">
                                         Dashboard
-                                        <motion.div 
+                                        <motion.div
                                             className="absolute bottom-0 left-0 h-0.5 bg-brand-yellow"
                                             initial={{ width: 0 }}
                                             animate={{ width: location.pathname === '/dashboard' ? '100%' : 0 }}
@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
                                     </NavLink>
                                 </div>
                             </motion.div>
-                         )}
+                        )}
                         <motion.div whileHover="hover" whileTap="tap" variants={buttonVariants}>
                             {user ? (
                                 <button onClick={handleLogout} className="bg-red-500 text-white font-bold py-2 px-6 rounded-full hover:bg-red-600 transition-colors duration-300 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark-blue focus-visible:ring-white">
@@ -136,18 +136,18 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
             </div>
-            
+
             <AnimatePresence>
                 {isOpen && (
                     <>
-                        <motion.div 
+                        <motion.div
                             className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden z-30"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
                         />
-                        <motion.div 
+                        <motion.div
                             ref={menuRef}
                             className="fixed top-0 right-0 h-full w-2/3 max-w-xs bg-brand-dark-blue shadow-2xl md:hidden z-40 flex flex-col"
                             variants={mobileMenuVariants}
@@ -173,13 +173,13 @@ const Navbar: React.FC = () => {
                                 <h2 id="mobile-menu-title" className="text-xl font-bold text-white ml-3">Menu</h2>
                             </div>
                             <div className="flex flex-col items-center justify-start flex-grow p-8 space-y-8 overflow-y-auto">
-                                 {user && (
+                                {user && (
                                     <motion.div whileTap={{ scale: 0.95 }}>
                                         <NavLink to="/dashboard" onClick={() => setIsOpen(false)} className="text-white font-bold text-2xl">
                                             Dashboard
                                         </NavLink>
                                     </motion.div>
-                                 )}
+                                )}
                                 <motion.div whileHover="hover" whileTap="tap" variants={buttonVariants}>
                                     {user ? (
                                         <button onClick={handleLogout} className="bg-red-500 text-white font-bold py-3 px-8 rounded-full shadow-md text-lg">
