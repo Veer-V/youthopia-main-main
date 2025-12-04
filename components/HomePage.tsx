@@ -114,7 +114,7 @@ const HomePage: React.FC = () => {
           >
             <NavLink
               to="/auth"
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-dark-blue font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark-blue hover:bg-brand-blue shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-[#205295] border-2 border-transparent font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#205295] hover:bg-[#2C74B3] shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               Join the Community
               <span className="ml-2 group-hover:translate-x-1 transition-transform">  </span> <FaArrowRight />
