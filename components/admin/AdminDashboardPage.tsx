@@ -8,7 +8,7 @@ import { staggerContainer, itemSpringUp } from '../../utils/animations';
 import SkeletonLoader from '../SkeletonLoader';
 
 const SkeletonStatCard: React.FC = () => (
-    <div className="glass p-4 rounded-xl shadow-md flex items-center border border-white/20">
+    <div className="glass dark:glass-dark p-4 rounded-xl shadow-md flex items-center border border-white/20 dark:border-gray-700/30">
         <SkeletonLoader className="h-12 w-12 rounded-lg mr-4" />
         <div className="flex-1">
             <SkeletonLoader className="h-4 w-2/3 rounded-md mb-2" />
@@ -31,7 +31,7 @@ const StatCard: React.FC<StatCardProps> = ({ icon, title, value, color, iconColo
         whileHover={{ y: -5, transition: { duration: 0.2 } }}
         whileTap={{ scale: 0.95 }}
         onClick={onClick}
-        className={`glass p-4 rounded-xl shadow-md flex items-center cursor-pointer border border-white/20 ${onClick ? 'hover:shadow-lg hover:bg-white/40' : ''}`}
+        className={`glass dark:glass-dark p-4 rounded-xl shadow-md flex items-center cursor-pointer border border-white/20 dark:border-gray-700/30 ${onClick ? 'hover:shadow-lg hover:bg-white/40 dark:hover:bg-gray-800/40' : ''}`}
     >
         <div className={`p-3 rounded-lg ${color} ${iconColor} mr-4 shadow-sm`}>
             {icon}
@@ -146,7 +146,7 @@ const AdminDashboardPage: React.FC = () => {
 
             {/* Wellness Quote Section */}
             <motion.div
-                className="mt-8 glass p-6 rounded-xl border border-white/20"
+                className="mt-8 glass dark:glass-dark p-6 rounded-xl border border-white/20 dark:border-gray-700/30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}

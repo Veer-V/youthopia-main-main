@@ -21,6 +21,8 @@ export default {
                     'light-blue': '#144272', // Adjusted for better contrast
                     'yellow': '#FFC107', // Standard Amber
                     'yellow-light': '#FFD54F',
+                    'bg': '#F8FAFC', // Slate 50
+                    'black': '#0F172A', // Slate 900
                 }
             },
             animation: {
