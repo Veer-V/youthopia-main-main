@@ -20,7 +20,7 @@ const AchievementToast: React.FC = () => {
             return () => clearTimeout(timer);
         }
     }, [visibleAchievements, clearLastEarnedAchievements]);
-    
+
     const removeAchievement = (id: string) => {
         setVisibleAchievements(prev => prev.filter(ach => ach.id !== id));
     };
@@ -47,8 +47,8 @@ const AchievementToast: React.FC = () => {
                             <p className="text-sm font-semibold">{achievement.name}</p>
                             <p className="text-xs text-gray-300 mt-1">{achievement.description}</p>
                         </div>
-                        <button 
-                            onClick={() => removeAchievement(achievement.id)} 
+                        <button
+                            onClick={() => removeAchievement(achievement.id)}
                             className="absolute top-2 right-2 text-gray-400 hover:text-white p-1 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
                             aria-label="Close notification"
                         >
