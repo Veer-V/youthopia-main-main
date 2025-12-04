@@ -4,6 +4,7 @@ import { motion, AnimatePresence, type Variants, type SVGMotionProps } from 'fra
 import { useAuth } from '../contexts/AuthContext.tsx';
 // import ThemeToggle from './ThemeToggle.tsx';
 import { useFocusTrap } from '../hooks/useFocusTrap.ts';
+import youthopiaLogo from '../assets/youthopia-logo.png';
 
 // A custom motion component for the animated hamburger icon paths
 const Path = (props: SVGMotionProps<SVGPathElement>) => (
@@ -66,7 +67,7 @@ const Navbar: React.FC = () => {
                             className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-sm"
                         >
                             <img
-                                src="/logo.png"
+                                src={youthopiaLogo}
                                 alt="Youthopia Logo"
                                 className="h-10 w-auto sm:h-12 md:h-14 object-contain"
                             />
@@ -149,7 +150,7 @@ const Navbar: React.FC = () => {
                         />
                         <motion.div
                             ref={menuRef}
-                            className="fixed top-0 right-0 h-full w-2/3 max-w-xs bg-brand-dark-blue shadow-2xl md:hidden z-40 flex flex-col"
+                            className="fixed top-0 right-0 h-full w-2/3 max-w-xs glass-dark shadow-2xl md:hidden z-40 flex flex-col border-l border-white/10"
                             variants={mobileMenuVariants}
                             initial="hidden"
                             animate="visible"
@@ -165,7 +166,7 @@ const Navbar: React.FC = () => {
                                     className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-sm"
                                 >
                                     <img
-                                        src="/logo.png"
+                                        src={youthopiaLogo}
                                         alt="Youthopia Logo"
                                         className="h-9 w-auto object-contain"
                                     />

@@ -17,8 +17,8 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <motion.footer 
-            className="bg-brand-dark-blue text-white"
+        <motion.footer
+            className="glass-dark text-white border-t border-white/10"
             variants={itemSpringUp}
             initial="hidden"
             whileInView="visible"
@@ -27,16 +27,16 @@ const Footer: React.FC = () => {
             <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
                     <div className="text-center md:text-left">
-                        <h3 className="text-2xl font-bold">Youthopia</h3>
-                        <p className="mt-1 text-gray-400">Your space for mental wellness.</p>
+                        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-yellow to-yellow-200">Youthopia</h3>
+                        <p className="mt-1 text-gray-300">Your space for mental wellness.</p>
                     </div>
                     <div className="flex space-x-6">
-                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-400"><FaTwitter size={24} /></motion.a>
-                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-400"><FaInstagram size={24} /></motion.a>
-                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-400"><FaFacebook size={24} /></motion.a>
+                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-300 hover:text-brand-yellow transition-colors"><FaTwitter size={24} /></motion.a>
+                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-300 hover:text-brand-yellow transition-colors"><FaInstagram size={24} /></motion.a>
+                        <motion.a href="#" variants={iconVariants} whileHover="hover" whileTap="tap" className="text-gray-300 hover:text-brand-yellow transition-colors"><FaFacebook size={24} /></motion.a>
                     </div>
                 </div>
-                <div className="mt-8 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+                <div className="mt-8 border-t border-gray-700/50 pt-6 text-center text-gray-400 text-sm">
                     <p>&copy; {new Date().getFullYear()} Youthopia. All Rights Reserved. A project for hope and resilience.</p>
                 </div>
             </div>
